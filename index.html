@@ -1,4 +1,7 @@
 <html>
+<head>
+<link rel="stylesheet" type="text/css" href="./mycss.css">
+</head>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js" > </script>
 <script type="text/javascript" src="http://html2canvas.hertzen.com/dist/html2canvas.min.js" /> </script>
 
@@ -6,63 +9,121 @@
 <script>
 var  URL="https://www.moneycontrol.com/india/stockpricequote/";
 var j=0;
-const data = [{
+const data = [
+
+  {
+    name: 'hcl',
+    url: URL+"computers-software/hcltechnologies/HCL02",
+	date1 :Date.now(),
+	logo:"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/hcl.jpg"
+  },
+  {
+    name: 'Asian Paints',
+    url: URL+"paintsvarnishes/asianpaints/AP31",
+	date1 :Date.now(),
+	logo:"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/asian-paints.png"
+  },
+{
+    name: 'hul',
+    url: URL+"personal-care/hindustanunilever/HU",
+	date1 :Date.now(),
+	logo:"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/HUL.jpg"
+  },
+  {
+    name: 'nestle',
+    url: URL+"food-processing/nestleindia/NI",
+	date1 :Date.now(),
+	logo:"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/nestle.png"
+  },
+  {
+    name: 'maruti',
+    url: URL+"auto-carsjeeps/marutisuzukiindia/MS24",
+	date1 :Date.now(),
+	logo:"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/maruti.jpg"
+  },
+  {
+    name: 'airtel',
+    url: URL+"telecommunications-service/bhartiairtel/BA08",
+	date1 :Date.now(),
+	logo:"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/airtel.png"
+  },
+{
+    name: 'reliance',
+    url: URL+"refineries/relianceindustries/RI",
+	date1 :Date.now(),
+	logo:"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/reliance.jpg"
+  },
+  {
+    name: 'tcs',
+    url: URL+"computers-software/tataconsultancyservices/TCS",
+	date1 :Date.now(),
+	logo:"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/tcs.png"
+  },
+{
     name: 'infosys',
     url: URL+"computers-software/infosys/IT",
 	date1 :Date.now(),
-	logo:"https://toppng.com/uploads/preview/infosys-vector-logo-free-download-11574200524wvzgyrao38.png"
+	logo:"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/infosys.png"
   },
   {
     name: 'Titan',
     url: URL+"miscellaneous/titancompany/TI01",
 	date1 :Date.now(),
-	logo:"https://s3.ap-southeast-1.amazonaws.com/images.asianage.com/images/aa-Cover-ajdtihb7lo9cannqf6ugbmebm0-20161222011156.Medi.jpeg"
-  }, {
+	logo:"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/titan.jpeg"
+  },
+
+  {
+    name: 'ITC',
+    url: URL+"miscellaneous/cigarettes/itc/ITC",
+	date1 :Date.now(),
+	logo:"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/itc.jpeg"
+  },
+  {
    name: 'HDFC Bank',
     url: URL+"banks-private-sector/hdfcbank/HDF01",
 	date1 :Date.now(),
-	logo :"https://static.india.com/wp-content/uploads/2015/11/hdfc-bank-logo_regular-2.jpg"
+	logo :"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/HDFC_Bank.png"
   },
   {
     name: 'ICICI',
     url: URL+"banks-private-sector/icicibank/ICI02",
 	date1 :Date.now(),
-	logo :"https://img.etimg.com/thumb/width-640,height-480,imgsize-180986,resizemode-1,msid-71765131/industry/banking/finance/banking/icici-bank-sells-entire-stake-in-gst-network-to-13-state-governments/icici-bank-others.jpg"
+	logo :"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/ICICI_bank.png"
 	
   },
   {
     name: 'Kotak',
     url: URL+"banks-private-sector/kotakmahindrabank/KMB",
 	date1 :Date.now(),
-	logo :"http://persona-stars.com/files/2017/11/kotak-mahindra-bank-logo-1-300x180.jpg"
+	logo :"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/kotak.jpg"
 	
   },
   {
     name: 'Bajaj Finance Ltd',
     url: URL+"finance-leasinghire-purchase/bajajfinance/BAF",
 	date1 :Date.now(),
-	logo :"https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Bajaj_Finserv_Logo.svg/1280px-Bajaj_Finserv_Logo.svg.png"
+	logo :"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/bajaj_fin.png"
 	
   },
   {
     name: 'SBI',
     url: URL+"banks-public-sector/statebankindia/SBI",
 	date1 :Date.now(),
-	logo :"http://www.logo-designer.co/wp-content/uploads/2017/04/2017-Design-Stack-new-logo-design-State-Bank-of-India.png"
+	logo :"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/SBI.png"
 	
   },
   {
     name: 'HDFC',
     url: URL+"finance-housing/housingdevelopmentfinancecorporation/HDF",
 	date1 :Date.now(),
-	logo :"https://investeek.com/wp-content/uploads/2019/10/HDFC.png"
+	logo :"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/HDFC.png"
 	
   },
   {
     name: 'ONGC',
     url: URL+"oil-drillingexploration/oilnaturalgascorporation/ONG",
 	date1 :Date.now(),
-	logo :"https://upload.wikimedia.org/wikipedia/en/thumb/9/9a/ONGC_Logo.svg/250px-ONGC_Logo.svg.png"
+	logo :"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/ONGC.png"
 	
   }
 ]
@@ -76,53 +137,31 @@ var weekday = new Array(7);
   weekday[5] = "Friday";
   weekday[6] = "Saturday";
 
-for (i = 0; i < data.length; i++) 
+let apiRequestLoop = function() {
+  let promiseArray = [];
+  for (let i = 0; i < data.length; i++) {
+    let dataUrlLoop = data[i].url;
+    promiseArray.push(fetch(dataUrlLoop).
+	then((response) => response.text()).
+	then((text) => {data[i].date1=getMeDate(text);return data[i];}).
+	catch(e => {console.log(e);return e;})
+	);
+  }
+  return Promise.all(promiseArray);
+}
+
+
+function getMeDate(text) 
 {
 
-
-
-var date2;
-var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
-    targetUrl = 'https://www.bseindia.com/corporates/Forth_Results.aspx'
-  fetch(data[i].url, {
-
-
-  method: "GET", 
-  //body: JSON.stringify(data)
-}).then((response) => response.text()).
-then((text) => {
-
-text=text.trim();
 var start=text.indexOf('table class="mctable1 thborder frtab" width="100%" cellspacing="0" cellpadding="0"');
 var tableText=text.substring(start,start+2000).replace(/\s/g, '');
 var dateStart=tableText.indexOf('</th><th>Agenda</th></tr></thead><tbody><tr><td>');
 tableText=tableText.substring(dateStart,dateStart+100).replace('</th><th>Agenda</th></tr></thead><tbody><tr><td>','');
 dateStart=tableText.indexOf('</td>');
 date2=new Date(tableText.substring(0,dateStart));
-if (date2 instanceof Date) console.log(data[j].name+date2);
-console.log(tableText.substring(0,dateStart));
-console.log(j);
-data[j].date1=date2;
-
-
-//document.write(data[j].name+":"+data[j].date1+":"+weekday[data[j].date1.getDay()]+"<br>");
-//document.getElementById(weekday[data[j].date1.getDay()]).innerHTML=data[j].name+":"+data[j].date1+":"+weekday[data[j].date1.getDay()];
-console.log(document.getElementById(weekday[data[j].date1.getDay()]));
-document.getElementById(weekday[data[j].date1.getDay()]).innerHTML=document.getElementById(weekday[data[j].date1.getDay()]).innerHTML+"&nbsp;<img src="+ data[j].logo+" width='50' height='50'/>";
-console.log('------------------------------------------------');
-j=j+1;
-}
-).catch(e => {
-    console.log(e);
-    return e;
-  });
- 
- 
-}
-
-function callme() {
-
-
+if (date2 instanceof Date) //console.log(data[j].name+date2)
+return date2; //check before sending
 /*
 html2canvas(document.body,{useCORS: true,
 	allowTaint: true,} ).then(function(canvas) 
@@ -134,8 +173,24 @@ html2canvas(document.body,{useCORS: true,
 );*/
 }
 
+$( document ).ready(function() {
+    my_data=apiRequestLoop();
+	my_data.then(
+	response => response.forEach(foo => {
+    console.log(foo.name+":"+foo.date1);
+	callme(foo.date1.getDay(),foo.logo);
+    }
+  )
+	)
+ 
+}
 
-
+);
+function callme(day,logo)
+{
+console.log(day+":"+weekday[day]+":"+logo);
+document.getElementById(weekday[day]).innerHTML=document.getElementById(weekday[day]).innerHTML+"<img src='"+logo+"'  height='50'/>&nbsp;&nbsp;";
+}
 function onCurrentWeek(date) {
 
     var lastMonday = new Date(); // Creating new date object for today
@@ -151,19 +206,22 @@ function onCurrentWeek(date) {
 </script>
 <body>
  <div id="boundary">
-<table border="1" id="mycanvas">
+<table  id="mycanvas">
+<thead>
 <tr>
-<td>Sunday</td>
+
 <td>Monday</td>
 <td>Tuesday</td>
 <td>Wednesday</td>
 <td>Thrusday</td>
 <td>Friday</td>
 <td>Saturday</td>
+<td>Sunday</td>
 
 </tr>
+</thead>
 <tr>
-<td id="Monday"></td>
+<td id="Monday" ></td>
 <td id="Tuesday"></td>
 <td id="Wednesday"></td>
 <td id="Thursday"></td>
@@ -179,7 +237,7 @@ function onCurrentWeek(date) {
 document.getElementById("download").addEventListener("click", function() {
 
     html2canvas(document.querySelector('#boundary'),{useCORS: true,
-	allowTaint: true,}).then(function(canvas) {
+	/*allowTaint: true,*/}).then(function(canvas) {
 
         console.log(canvas);
         saveAs(canvas.toDataURL(), 'file-name.png');

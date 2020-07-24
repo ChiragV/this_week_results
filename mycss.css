@@ -1,0 +1,27 @@
+table {
+   width: 95%;
+  border-collapse: separate;
+  border-spacing: 0px;
+  border: solid black 2px;
+  border-radius: 8px;
+ 	 font-family: "Comic Sans MS";
+}
+
+td, th {
+    border-left:solid black 1px;
+    border-top:solid black 1px;
+	text-align: center;
+	width: 200px;
+
+  padding: 2px
+}
+
+th {
+    background-color: blue;
+    border-top: none;
+}
+
+td:first-child, th:first-child {
+     border-left: none;
+
+}
