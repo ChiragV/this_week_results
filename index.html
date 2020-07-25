@@ -10,6 +10,18 @@
 var  URL="https://www.moneycontrol.com/india/stockpricequote/";
 var j=0;
 const data = [
+
+  {
+    name: 'nestle',
+    url: URL+"food-processing/nestleindia/NI",
+	date1 :Date.now(),
+	logo:"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/nestle.png"
+  },{
+    name: 'Sun Pharma',
+    url: URL+"pharmaceuticals/sunpharmaceuticalindustries/SPI",
+	date1 :Date.now(),
+	logo:"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/sun.jpg"
+  },
 {
     name: 'HDFC Life Insurance',
     url: URL+"miscellaneous/hdfclifeinsurancecompanylimited/HSL01",
@@ -30,9 +42,9 @@ const data = [
   },
 {
     name: 'dmart',
-    url: URL+"computers-software/wipro/W",
+    url: URL+"retail/avenuesupermarts/AS19",
 	date1 :Date.now(),
-	logo:"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/wipro.jpg"
+	logo:"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/dmart.png"
   },
   {
     name: 'wipro',
@@ -57,13 +69,7 @@ const data = [
     url: URL+"personal-care/hindustanunilever/HU",
 	date1 :Date.now(),
 	logo:"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/HUL.jpg"
-  },
-  {
-    name: 'nestle',
-    url: URL+"food-processing/nestleindia/NI",
-	date1 :Date.now(),
-	logo:"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/nestle.png"
-  },
+  },  
   {
     name: 'maruti',
     url: URL+"auto-carsjeeps/marutisuzukiindia/MS24",
@@ -191,6 +197,8 @@ dateStart=tableText.indexOf('</td>');
 date2=new Date(tableText.substring(0,dateStart));
 if (date2 instanceof Date) //console.log(data[j].name+date2)
 return date2; //check before sending
+else
+return Date.now();
 /*
 html2canvas(document.body,{useCORS: true,
 	allowTaint: true,} ).then(function(canvas) 
@@ -207,7 +215,10 @@ $( document ).ready(function() {
 	my_data.then(
 	response => response.forEach(foo => {
     console.log(foo.name+":"+foo.date1);
-	callme(foo.date1.getDay(),foo.logo);
+	if(onCurrentWeek(foo.date1))
+	{
+		callme(foo.date1.getDay(),foo.logo);
+	}
     }
   )
 	)
@@ -221,7 +232,7 @@ console.log(day+":"+weekday[day]+":"+logo);
 document.getElementById(weekday[day]).innerHTML=document.getElementById(weekday[day]).innerHTML+"<img src='"+logo+"'  height='50'/>&nbsp;&nbsp;";
 }
 function onCurrentWeek(date) {
-
+	const WEEK_LENGTH = 604800000; //one week in ms = 24 * 60 * 60 * 1000 * 7 = 604,800,000
     var lastMonday = new Date(); // Creating new date object for today
     lastMonday.setDate(lastMonday.getDate() - (lastMonday.getDay()-1)); // Setting date to last monday
     lastMonday.setHours(0,0,0,0); // Setting Hour to 00:00:00:00
@@ -235,17 +246,17 @@ function onCurrentWeek(date) {
 </script>
 <body>
  <div id="boundary">
-<table  id="mycanvas">
-<thead>
-<tr>
+<table  id="mycanvas" >
+<thead style="background-color: blue;">
+<tr >
 
-<td>Monday</td>
-<td>Tuesday</td>
-<td>Wednesday</td>
-<td>Thrusday</td>
-<td>Friday</td>
-<td>Saturday</td>
-<td>Sunday</td>
+<th>Monday</th>
+<th>Tuesday</th>
+<th>Wednesday</th>
+<th>Thrusday</th>
+<th>Friday</th>
+<th>Saturday</th>
+<th>Sunday</th>
 
 </tr>
 </thead>
@@ -260,6 +271,7 @@ function onCurrentWeek(date) {
 </tr>
 </table>
  </div>
+ 
 <button id="download">Download</button>
 </body>
 	<script>
