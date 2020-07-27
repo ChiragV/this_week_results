@@ -1,7 +1,9 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="./mycss.css">
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js" > </script>
+
 <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.min.js" /> </script>
 <script>
 
@@ -70,16 +72,22 @@ $(document).ready(function() {
 <body>
  <div id="boundary">
 <table  id="mycanvas" >
-<thead style="background-color: blue;">
+<thead >
+<tr >
+<td colspan="7" style="background-color: #FFC105;">India stock market earning this week</td>
+</tr>
+
+</thead >
+<thead >
 <tr >
 
-<th>Monday</th>
-<th>Tuesday</th>
-<th>Wednesday</th>
-<th>Thrusday</th>
-<th>Friday</th>
-<th>Saturday</th>
-<th>Sunday</th>
+<td>Monday</td>
+<td>Tuesday</td>
+<td>Wednesday</td>
+<td>Thrusday</td>
+<td>Friday</td>
+<td>Saturday</td>
+<td>Sunday</td>
 
 </tr>
 </thead>
@@ -93,9 +101,10 @@ $(document).ready(function() {
 <td id="Sunday"><br/></td>
 </tr>
 </table>
+<div >https://chirag-vithlani.github.io/this_week_results/</div><br/>
  </div>
  
-<button id="download">Download</button>
+<button id="download" style="background-color:lightgreen">Share !</button>
 </body>
 	<script>
 document.getElementById("download").addEventListener("click", function() {
