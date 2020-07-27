@@ -19,15 +19,20 @@ td {
 	//background-color: red;
 }
 thead {
-    background-color: blue;
+  /*  background-color: blue;*/
 	border-top: none;
 }
 th {
-    background-color: blue;
+  background-color: lightseagreen;
     
 }
 
 td:first-child, th:first-child {
      border-left: none;
 
+}
+img
+{
+	 background: transparent;
+	// background-color: rgb(300, 300, 300);
 }
