@@ -1,167 +1,15 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="./mycss.css">
-</head>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js" > </script>
-<script type="text/javascript" src="http://html2canvas.hertzen.com/dist/html2canvas.min.js" /> </script>
-
-
+<script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.min.js" /> </script>
 <script>
-var  URL="https://www.moneycontrol.com/india/stockpricequote/";
-var j=0;
-const data = [
 
-  {
-    name: 'nestle',
-    url: URL+"food-processing/nestleindia/NI",
-	date1 :Date.now(),
-	logo:"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/nestle.png"
-  },{
-    name: 'Sun Pharma',
-    url: URL+"pharmaceuticals/sunpharmaceuticalindustries/SPI",
-	date1 :Date.now(),
-	logo:"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/sun.jpg"
-  },
-{
-    name: 'HDFC Life Insurance',
-    url: URL+"miscellaneous/hdfclifeinsurancecompanylimited/HSL01",
-	date1 :Date.now(),
-	logo:"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/hdfc-life.png"
-  },
-{
-    name: 'axis',
-    url: URL+"banks-private-sector/axisbank/AB16",
-	date1 :Date.now(),
-	logo:"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/axis.jpg"
-  },
-{
-    name: 'LNT',
-    url: URL+"infrastructure-general/larsentoubro/LT",
-	date1 :Date.now(),
-	logo:"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/lnt.jpg"
-  },
-{
-    name: 'dmart',
-    url: URL+"retail/avenuesupermarts/AS19",
-	date1 :Date.now(),
-	logo:"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/dmart.png"
-  },
-  {
-    name: 'wipro',
-    url: URL+"computers-software/wipro/W",
-	date1 :Date.now(),
-	logo:"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/wipro.jpg"
-  },
-  {
-    name: 'hcl',
-    url: URL+"computers-software/hcltechnologies/HCL02",
-	date1 :Date.now(),
-	logo:"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/hcl.jpg"
-  },
-  {
-    name: 'Asian Paints',
-    url: URL+"paintsvarnishes/asianpaints/AP31",
-	date1 :Date.now(),
-	logo:"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/asian-paints.png"
-  },
-{
-    name: 'hul',
-    url: URL+"personal-care/hindustanunilever/HU",
-	date1 :Date.now(),
-	logo:"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/HUL.jpg"
-  },  
-  {
-    name: 'maruti',
-    url: URL+"auto-carsjeeps/marutisuzukiindia/MS24",
-	date1 :Date.now(),
-	logo:"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/maruti.jpg"
-  },
-  {
-    name: 'airtel',
-    url: URL+"telecommunications-service/bhartiairtel/BA08",
-	date1 :Date.now(),
-	logo:"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/airtel.png"
-  },
-{
-    name: 'reliance',
-    url: URL+"refineries/relianceindustries/RI",
-	date1 :Date.now(),
-	logo:"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/reliance.jpg"
-  },
-  {
-    name: 'tcs',
-    url: URL+"computers-software/tataconsultancyservices/TCS",
-	date1 :Date.now(),
-	logo:"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/tcs.png"
-  },
-{
-    name: 'infosys',
-    url: URL+"computers-software/infosys/IT",
-	date1 :Date.now(),
-	logo:"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/infosys.png"
-  },
-  {
-    name: 'Titan',
-    url: URL+"miscellaneous/titancompany/TI01",
-	date1 :Date.now(),
-	logo:"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/titan.jpeg"
-  },
-
-  {
-    name: 'ITC',
-    url: URL+"miscellaneous/cigarettes/itc/ITC",
-	date1 :Date.now(),
-	logo:"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/itc.jpeg"
-  },
-  {
-   name: 'HDFC Bank',
-    url: URL+"banks-private-sector/hdfcbank/HDF01",
-	date1 :Date.now(),
-	logo :"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/HDFC_Bank.png"
-  },
-  {
-    name: 'ICICI',
-    url: URL+"banks-private-sector/icicibank/ICI02",
-	date1 :Date.now(),
-	logo :"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/ICICI_bank.png"
-	
-  },
-  {
-    name: 'Kotak',
-    url: URL+"banks-private-sector/kotakmahindrabank/KMB",
-	date1 :Date.now(),
-	logo :"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/kotak.jpg"
-	
-  },
-  {
-    name: 'Bajaj Finance Ltd',
-    url: URL+"finance-leasinghire-purchase/bajajfinance/BAF",
-	date1 :Date.now(),
-	logo :"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/bajaj_fin.png"
-	
-  },
-  {
-    name: 'SBI',
-    url: URL+"banks-public-sector/statebankindia/SBI",
-	date1 :Date.now(),
-	logo :"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/SBI.png"
-	
-  },
-  {
-    name: 'HDFC',
-    url: URL+"finance-housing/housingdevelopmentfinancecorporation/HDF",
-	date1 :Date.now(),
-	logo :"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/HDFC.png"
-	
-  },
-  {
-    name: 'ONGC',
-    url: URL+"oil-drillingexploration/oilnaturalgascorporation/ONG",
-	date1 :Date.now(),
-	logo :"https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/ONGC.png"
-	
-  }
-]
+function MyData(ID, name, date) {
+  this.ID = ID;
+  this.name = name;
+  this.date = new Date(date);
+}
 
 var weekday = new Array(7);
   weekday[0] = "Sunday";
@@ -171,79 +19,54 @@ var weekday = new Array(7);
   weekday[4] = "Thursday";
   weekday[5] = "Friday";
   weekday[6] = "Saturday";
-
-let apiRequestLoop = function() {
-  let promiseArray = [];
-  for (let i = 0; i < data.length; i++) {
-    let dataUrlLoop = data[i].url;
-    promiseArray.push(fetch(dataUrlLoop).
-	then((response) => response.text()).
-	then((text) => {data[i].date1=getMeDate(text);return data[i];}).
-	catch(e => {console.log(e);return e;})
-	);
-  }
-  return Promise.all(promiseArray);
-}
-
-
-function getMeDate(text) 
-{
-
-var start=text.indexOf('table class="mctable1 thborder frtab" width="100%" cellspacing="0" cellpadding="0"');
-var tableText=text.substring(start,start+2000).replace(/\s/g, '');
-var dateStart=tableText.indexOf('</th><th>Agenda</th></tr></thead><tbody><tr><td>');
-tableText=tableText.substring(dateStart,dateStart+100).replace('</th><th>Agenda</th></tr></thead><tbody><tr><td>','');
-dateStart=tableText.indexOf('</td>');
-date2=new Date(tableText.substring(0,dateStart));
-if (date2 instanceof Date) //console.log(data[j].name+date2)
-return date2; //check before sending
-else
-return Date.now();
-/*
-html2canvas(document.body,{useCORS: true,
-	allowTaint: true,} ).then(function(canvas) 
-{
-	
-    document.body.appendChild(canvas);
-}
-
-);*/
-}
-
-$( document ).ready(function() {
-    my_data=apiRequestLoop();
-	my_data.then(
-	response => response.forEach(foo => {
-    console.log(foo.name+":"+foo.date1);
-	if(onCurrentWeek(foo.date1))
-	{
-		callme(foo.date1.getDay(),foo.logo);
-	}
-    }
-  )
-	)
- 
-}
-
-);
+  
 function callme(day,logo)
 {
 console.log(day+":"+weekday[day]+":"+logo);
-document.getElementById(weekday[day]).innerHTML=document.getElementById(weekday[day]).innerHTML+"<img src='"+logo+"'  height='50'/>&nbsp;&nbsp;";
+document.getElementById(weekday[day]).innerHTML=document.getElementById(weekday[day]).innerHTML+"<img src='https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/"+logo.trim()+".jpg'  height='50'/>&nbsp;&nbsp";
+//document.getElementById(weekday[day]).innerHTML+"<img src='"+logo+"'  height='50'/>&nbsp;&nbsp;";
 }
 function onCurrentWeek(date) {
 	const WEEK_LENGTH = 604800000; //one week in ms = 24 * 60 * 60 * 1000 * 7 = 604,800,000
     var lastMonday = new Date(); // Creating new date object for today
     lastMonday.setDate(lastMonday.getDate() - (lastMonday.getDay()-1)); // Setting date to last monday
     lastMonday.setHours(0,0,0,0); // Setting Hour to 00:00:00:00
-    
+    date.setHours(0,0,0,0);
 
 
-    const res = lastMonday.getTime() < date.getTime() &&
+    const res = lastMonday.getTime() <= date.getTime() &&
                 date.getTime() < ( lastMonday.getTime() + WEEK_LENGTH);
     return res; // Boolean
 }
+
+let apiRequestLoop = function() {
+  let promiseArray = [];
+ 
+   $.ajax({url: "https://spreadsheets.google.com/feeds/cells/15CoBpWSHfWPttaNPtJEbYZqGKApG7tMdgg2GQbuWwdU/1/public/full?alt=json", success: function(result){
+    var res=result.feed;
+	for (let i = 0; i < res.entry.length; i=i+3) 
+	{
+		console.log(res.entry[i].gs$cell.inputValue+":"+res.entry[i+1].gs$cell.inputValue+":"+res.entry[i+2].gs$cell.inputValue);
+		var myDataObj = new MyData(res.entry[i].gs$cell.inputValue, res.entry[i+1].gs$cell.inputValue, res.entry[i+2].gs$cell.inputValue);
+		promiseArray.push(myDataObj);
+		/***************/
+		if(onCurrentWeek(myDataObj.date))
+		{
+			callme(myDataObj.date.getDay(),myDataObj.name);
+		}
+		/*************/
+	}
+	console.log(promiseArray.length);
+  }});
+  
+  
+}
+
+$(document).ready(function() {
+    my_data=apiRequestLoop();
+});
 </script>
+</head>
 <body>
  <div id="boundary">
 <table  id="mycanvas" >
@@ -261,13 +84,13 @@ function onCurrentWeek(date) {
 </tr>
 </thead>
 <tr>
-<td id="Monday" ></td>
-<td id="Tuesday"></td>
-<td id="Wednesday"></td>
-<td id="Thursday"></td>
-<td id="Friday"></td>
-<td id="Saturday"></td>
-<td id="Sunday"></td>
+<td id="Monday" ><br/></td>
+<td id="Tuesday"><br/></td>
+<td id="Wednesday"><br/></td>
+<td id="Thursday"><br/></td>
+<td id="Friday"><br/></td>
+<td id="Saturday"><br/></td>
+<td id="Sunday"><br/></td>
 </tr>
 </table>
  </div>
@@ -278,7 +101,7 @@ function onCurrentWeek(date) {
 document.getElementById("download").addEventListener("click", function() {
 
     html2canvas(document.querySelector('#boundary'),{useCORS: true,
-	/*allowTaint: true,*/}).then(function(canvas) {
+	allowTaint: true,}).then(function(canvas) {
 
         console.log(canvas);
         saveAs(canvas.toDataURL(), 'file-name.png');
@@ -311,4 +134,7 @@ function saveAs(uri, filename) {
     }
 }
 </script>
+<br />
+
+
 </html>
