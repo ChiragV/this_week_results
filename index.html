@@ -31,7 +31,7 @@ function callme(day,logo)
 {
 console.log(day+":"+weekday[day]+":"+logo);
 document.getElementById(weekday[day]).innerHTML=document.getElementById(weekday[day]).innerHTML+"<img src='https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/"+logo.trim()+".jpg'  height='50'/>&nbsp;&nbsp";
-//document.getElementById(weekday[day]).innerHTML+"<img src='"+logo+"'  height='50'/>&nbsp;&nbsp;";
+//document.getElementById(weekday[day]).innerHTML+"<img src='"+logo+"'  height='100'/>&nbsp;&nbsp;";
 }
 function onCurrentWeek(date) {
 	const WEEK_LENGTH = 604800000; //one week in ms = 24 * 60 * 60 * 1000 * 7 = 604,800,000
