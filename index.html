@@ -1,24 +1,14 @@
-<html>
+<!DOCTYPE html>
 <head>
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:site" content="https://chirag-vithlani.github.io/this_week_results/">
-  <meta name="twitter:title" content="BSE/Nifty Earning this week">
-  <meta name="twitter:description" content="India stock market most awaited earnings this week">
-  <meta name="twitter:creator" content="@ChiragVithlani">
- <link rel="icon" href="./images/twr.ico" type="image/ico" defer>
-<link rel="stylesheet" type="text/css" href="./mycss.css" async>
-
+  <meta name="twitter:card" content="summary"><meta name="twitter:site" content="https://chirag-vithlani.github.io/this_week_results/"><meta name="twitter:title" content="BSE/Nifty Earning this week"><meta name="twitter:description" content="India stock market most awaited earnings this week"><meta name="twitter:creator" content="@ChiragVithlani"><link rel="icon" href="./images/twr.ico" type="image/ico" defer>
+  <link rel="stylesheet" type="text/css" href="./mycss.css" async>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js" > </script>
-
 <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.min.js" defer> </script>
 <script>
-
-function MyData(ID, name, date) {
-  this.ID = ID;
-  this.name = name;
+function MyData(ID, name, date){
+  this.ID = ID;this.name = name;
   this.date = new Date(date);
 }
-
 var weekday = new Array(7);
   weekday[0] = "Sunday";
   weekday[1] = "Monday";
@@ -27,134 +17,54 @@ var weekday = new Array(7);
   weekday[4] = "Thursday";
   weekday[5] = "Friday";
   weekday[6] = "Saturday";
-  
-function callme(day,logo)
-{
-console.log(day+":"+weekday[day]+":"+logo);
-document.getElementById(weekday[day]).innerHTML=document.getElementById(weekday[day]).innerHTML+"<img src='https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/"+logo.trim()+".jpg'  height='50'/>&nbsp;&nbsp";
-//document.getElementById(weekday[day]).innerHTML+"<img src='"+logo+"'  height='100'/>&nbsp;&nbsp;";
+function callme(day,logo){console.log(day+":"+weekday[day]+":"+logo);
+document.getElementById(weekday[day]).innerHTML=document.getElementById(weekday[day]).innerHTML+"<img src='https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/"+logo.trim()+".jpg'  height='60'/>&nbsp;&nbsp";
 }
 function onCurrentWeek(date) {
-	const WEEK_LENGTH = 604800000; //one week in ms = 24 * 60 * 60 * 1000 * 7 = 604,800,000
-    var lastMonday = new Date(); // Creating new date object for today
-    lastMonday.setDate(lastMonday.getDate() - (lastMonday.getDay()-1)); // Setting date to last monday
-    lastMonday.setHours(0,0,0,0); // Setting Hour to 00:00:00:00
-    date.setHours(0,0,0,0);
-
-
+	const WEEK_LENGTH = 604800000; var lastMonday = new Date();lastMonday.setDate(lastMonday.getDate() - (lastMonday.getDay()-1));
+    lastMonday.setHours(0,0,0,0); date.setHours(0,0,0,0);
     const res = lastMonday.getTime() <= date.getTime() &&
-                date.getTime() < ( lastMonday.getTime() + WEEK_LENGTH);
-    return res; // Boolean
+    date.getTime() < ( lastMonday.getTime() + WEEK_LENGTH);
+    return res; 
 }
-
 let apiRequestLoop = function() {
   let promiseArray = [];
- 
    $.ajax({url: "https://spreadsheets.google.com/feeds/cells/15CoBpWSHfWPttaNPtJEbYZqGKApG7tMdgg2GQbuWwdU/1/public/full?alt=json", success: function(result){
     var res=result.feed;
-	for (let i = 0; i < res.entry.length; i=i+3) 
-	{
-		console.log(res.entry[i].gs$cell.inputValue+":"+res.entry[i+1].gs$cell.inputValue+":"+res.entry[i+2].gs$cell.inputValue);
-		var myDataObj = new MyData(res.entry[i].gs$cell.inputValue, res.entry[i+1].gs$cell.inputValue, res.entry[i+2].gs$cell.inputValue);
-		promiseArray.push(myDataObj);
-		/***************/
-		if(onCurrentWeek(myDataObj.date))
-		{
-			callme(myDataObj.date.getDay(),myDataObj.name);
-		}
-		/*************/
-	}
+	for (let i = 0; i < res.entry.length; i=i+3){console.log(res.entry[i].gs$cell.inputValue+":"+res.entry[i+1].gs$cell.inputValue+":"+res.entry[i+2].gs$cell.inputValue);var myDataObj = new MyData(res.entry[i].gs$cell.inputValue, res.entry[i+1].gs$cell.inputValue, res.entry[i+2].gs$cell.inputValue);promiseArray.push(myDataObj);if(onCurrentWeek(myDataObj.date)){callme(myDataObj.date.getDay(),myDataObj.name);}}
 	console.log(promiseArray.length);
   }});
-  
-  
 }
-
 $(document).ready(function() {
     my_data=apiRequestLoop();
 });
-</script>
-</head>
-<body>
- <div id="boundary">
-<table  id="mycanvas" >
-<thead >
-<tr >
-<td colspan="7" style="background-color: #FFC105;">India stock market most awaited earnings this week</td>
-</tr>
-
-</thead >
-<thead >
-<tr >
-
-<td>Monday</td>
-<td>Tuesday</td>
-<td>Wednesday</td>
-<td>Thrusday</td>
-<td>Friday</td>
-<td>Saturday</td>
-<td>Sunday</td>
-
-</tr>
-</thead>
-<tr>
-<td id="Monday" ><br/></td>
-<td id="Tuesday"><br/></td>
-<td id="Wednesday"><br/></td>
-<td id="Thursday"><br/></td>
-<td id="Friday"><br/></td>
-<td id="Saturday"><br/></td>
-<td id="Sunday"><br/></td>
-</tr>
-</table>
-<div >https://chirag-vithlani.github.io/this_week_results/</div><br/>
+</script></head>
+<body><div id="boundary"><table  id="mycanvas" ><thead ><tr><td colspan="7" style="background-color: #FFC105;">India stock market most awaited earnings this week</td></tr></thead ><thead ><tr><td>Monday</td><td>Tuesday</td><td>Wednesday</td><td>Thrusday</td><td>Friday</td><td>Saturday</td><td>Sunday</td></tr></thead><tr>
+<td id="Monday" ><br/></td><td id="Tuesday"><br/></td><td id="Wednesday"><br/></td><td id="Thursday"><br/></td><td id="Friday"><br/></td><td id="Saturday"><br/></td>
+<td id="Sunday"><br/></td></tr></table><div >https://chirag-vithlani.github.io/this_week_results/</div><br/>
  </div>
- 
 <button id="download" style="background-color:lightgreen">Share !</button>&nbsp;
-
-
-
-
-
 </body>
 	<script>
 document.getElementById("download").addEventListener("click", function() {
-
     html2canvas(document.querySelector('#boundary'),{useCORS: true,
 	allowTaint: true,}).then(function(canvas) {
-
         console.log(canvas);
         saveAs(canvas.toDataURL(), 'Market_Earning_Cal.png');
     });
 });
-
-
 function saveAs(uri, filename) {
-
     var link = document.createElement('a');
-
     if (typeof link.download === 'string') {
-
         link.href = uri;
         link.download = filename;
-
-        //Firefox requires the link to be in the body
         document.body.appendChild(link);
-
-        //simulate click
         link.click();
-
-        //remove the link when done
         document.body.removeChild(link);
-
     } else {
-
         window.open(uri);
-
     }
 }
 </script>
 <br />
-
-
 </html>
