@@ -16,14 +16,13 @@ td, th {
 }
 td {
 	padding:0 15px;
-	//background-color: red;
 }
 thead {
-   background-color:lightseagreen;
+   background-color:lightblue;
 	border-top: none;
 }
 th {
-  background-color:lightseagreen;
+  background-color:lightblue;
     
 }
 
