@@ -32,7 +32,7 @@ function callme(day,logo){
 //console.log(day+":"+weekday[day]+":"+logo);
 var myDay=weekday[day];
 if(myDay=='Sunday' || myDay=='Saturday') myDay="Weekend";
-document.getElementById(myDay).innerHTML=document.getElementById(myDay).innerHTML+"<img src='https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/"+logo.trim()+".jpg'  height='70'/>&nbsp;&nbsp";
+document.getElementById(myDay).innerHTML=document.getElementById(myDay).innerHTML+"<img src='https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/"+logo.trim()+".jpg'  height='50'/>&nbsp;&nbsp";
 }
 function onCurrentWeek(date) {
 	const WEEK_LENGTH = 604800000; var lastMonday = new Date();lastMonday.setDate(lastMonday.getDate() - (lastMonday.getDay()-1));
