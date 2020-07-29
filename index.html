@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <head>
   <title>Indian stock market most awaited earnings this week</title>
-  <meta name="description" content="Stock market earnings" />
-  <meta property="og:title" content="Weekly earnings calendar" />
-  <meta property="og:url" content="https://chirag-vithlani.github.io/this_week_results/" />
-  <meta property="og:image" content="https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/this_week.png">
-  <meta name="twitter:card" content="summary"><meta name="twitter:site" content="https://chirag-vithlani.github.io/this_week_results/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://chirag-vithlani.github.io/this_week_results/"/>
+  <meta name="twitter:site" content="https://chirag-vithlani.github.io/this_week_results/">
   <meta name="twitter:image" content="https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/this_week.png">
   <meta name="twitter:title" content="BSE/Nifty Earning this week">
   <meta name="twitter:description" content="Indian stock market most awaited earnings this week">
   <meta name="twitter:creator" content="@ChiragVithlani">
+  
+  <meta name="description" content="Stock market earnings" />
+  <meta property="og:title" content="Weekly earnings calendar" />
+  <meta property="og:url" content="https://chirag-vithlani.github.io/this_week_results/" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/this_week.png">
+  
   <link rel="icon" href="./images/twr.ico" type="image/ico" defer>
   <link rel="stylesheet" type="text/css" href="./mycss.css" async>
   
@@ -30,7 +34,7 @@ var weekday = new Array(7);
   weekday[6] = "Saturday";
 function callme(day,logo){
 //console.log(day+":"+weekday[day]+":"+logo);
-var myDay=weekday[day];
+var myDay=weekday[day];  
 if(myDay=='Sunday' || myDay=='Saturday') myDay="Weekend";
 document.getElementById(myDay).innerHTML=document.getElementById(myDay).innerHTML+"<img src='https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/"+logo.trim()+".jpg'  height='50'/>&nbsp;&nbsp";
 }
@@ -83,14 +87,17 @@ $(document).ready(function() {
  </div>
 <button id="download" style="background-color:lightgreen">Download | Share</button>&nbsp;
 <button class="button" onClick="window.open('https://forms.gle/vNMUxpZwNkHipCKw6');" style="background-color:lightblue">
-     <span class="icon">Feedback  | Comments | Questions</span>
-</button>
+     <span >Feedback  | Comments | Questions</span>
+</button>&nbsp;
 
-
+<button onclick="myFunction()">Tweet</button>
 
 
 </body>
 	<script>
+function myFunction() {
+  window.open("https://twitter.com/intent/tweet?url=https://chirag-vithlani.github.io/this_week_results&text=India+stock+market+most+awaited+earning+this week&via=ChiragVithlani","", toolbar=0, status=0, width=650, height=420);
+}
 document.getElementById("download").addEventListener("click", function() {
     html2canvas(document.querySelector('#boundary'),{useCORS: true,
 	allowTaint: true,}).then(function(canvas) {
