@@ -28,8 +28,11 @@ var weekday = new Array(7);
   weekday[4] = "Thursday";
   weekday[5] = "Friday";
   weekday[6] = "Saturday";
-function callme(day,logo){console.log(day+":"+weekday[day]+":"+logo);
-document.getElementById(weekday[day]).innerHTML=document.getElementById(weekday[day]).innerHTML+"<img src='https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/"+logo.trim()+".jpg'  height='60'/>&nbsp;&nbsp";
+function callme(day,logo){
+//console.log(day+":"+weekday[day]+":"+logo);
+var myDay=weekday[day];
+if(myDay=='Sunday' || myDay=='Saturday') myDay="Weekend";
+document.getElementById(myDay).innerHTML=document.getElementById(myDay).innerHTML+"<img src='https://raw.githubusercontent.com/chirag-vithlani/this_week_results/master/images/"+logo.trim()+".jpg'  height='70'/>&nbsp;&nbsp";
 }
 function onCurrentWeek(date) {
 	const WEEK_LENGTH = 604800000; var lastMonday = new Date();lastMonday.setDate(lastMonday.getDate() - (lastMonday.getDay()-1));
@@ -42,17 +45,41 @@ let apiRequestLoop = function() {
   let promiseArray = [];
    $.ajax({url: "https://spreadsheets.google.com/feeds/cells/15CoBpWSHfWPttaNPtJEbYZqGKApG7tMdgg2GQbuWwdU/1/public/full?alt=json", success: function(result){
     var res=result.feed;
-	for (let i = 0; i < res.entry.length; i=i+3){console.log(res.entry[i].gs$cell.inputValue+":"+res.entry[i+1].gs$cell.inputValue+":"+res.entry[i+2].gs$cell.inputValue);var myDataObj = new MyData(res.entry[i].gs$cell.inputValue, res.entry[i+1].gs$cell.inputValue, res.entry[i+2].gs$cell.inputValue);promiseArray.push(myDataObj);if(onCurrentWeek(myDataObj.date)){callme(myDataObj.date.getDay(),myDataObj.name);}}
-	console.log(promiseArray.length);
+	for (let i = 0; i < res.entry.length; i=i+3){
+	//console.log(res.entry[i].gs$cell.inputValue+":"+res.entry[i+1].gs$cell.inputValue+":"+res.entry[i+2].gs$cell.inputValue);
+	var myDataObj = new MyData(res.entry[i].gs$cell.inputValue, res.entry[i+1].gs$cell.inputValue, res.entry[i+2].gs$cell.inputValue);
+	promiseArray.push(myDataObj);
+	if(onCurrentWeek(myDataObj.date))
+	{
+	callme(myDataObj.date.getDay(),myDataObj.name);
+	}}
+	//console.log(promiseArray.length);
   }});
 }
 $(document).ready(function() {
     my_data=apiRequestLoop();
 });
 </script></head>
-<body><div id="boundary"><table  id="mycanvas" ><thead ><tr><td colspan="7" style="background-color: #FFC105;">Indian stock market most awaited earnings this week</td></tr></thead ><thead ><tr><td>Monday</td><td>Tuesday</td><td>Wednesday</td><td>Thrusday</td><td>Friday</td><td>Saturday</td><td>Sunday</td></tr></thead><tr>
-<td id="Monday" ><br/></td><td id="Tuesday"><br/></td><td id="Wednesday"><br/></td><td id="Thursday"><br/></td><td id="Friday"><br/></td><td id="Saturday"><br/></td>
-<td id="Sunday"><br/></td></tr></table><div >https://chirag-vithlani.github.io/this_week_results/</div><br/>
+<body><div id="boundary">
+<table  id="mycanvas"  ><thead ><tr><td colspan="7" style="background-color: #FFC105;">Indian stock market most awaited earnings this week</td></tr>
+</thead ><thead >
+<tr>
+<td>Monday</td>
+<td>Tuesday</td>
+<td>Wednesday</td>
+<td>Thrusday</td>
+<td>Friday</td>
+<td>Weekend</td>
+</tr>
+</thead>
+<tr>
+<td id="Monday" ><br/></td><td id="Tuesday"><br/></td><td id="Wednesday"><br/>
+</td>
+<td id="Thursday"><br/></td>
+<td id="Friday"><br/></td>
+<td id="Weekend"><br/></td>
+</tr>
+</table><div >https://chirag-vithlani.github.io/this_week_results/</div><br/>
  </div>
 <button id="download" style="background-color:lightgreen">Download | Share</button>&nbsp;
 <button class="button" onClick="window.open('https://forms.gle/vNMUxpZwNkHipCKw6');" style="background-color:lightblue">
