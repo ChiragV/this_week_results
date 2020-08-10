@@ -32,6 +32,5 @@ td:first-child, th:first-child {
 }
 img
 {
-	 background: transparent;
-	// background-color: rgb(300, 300, 300);
+	 background: transparent;	
 }
