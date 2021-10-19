@@ -72,11 +72,11 @@ function onCurrentWeek(date) {
 }
 let apiRequestLoop = function() {
   let promiseArray = [];
-   $.ajax({url: "https://spreadsheets.google.com/feeds/cells/15CoBpWSHfWPttaNPtJEbYZqGKApG7tMdgg2GQbuWwdU/1/public/full?alt=json", success: function(result){
+   $.ajax({url: "https://sheets.googleapis.com/v4/spreadsheets/15CoBpWSHfWPttaNPtJEbYZqGKApG7tMdgg2GQbuWwdU/values/Sheet1?key=AIzaSyAWR9hrwz_L3pLXBg2aKY-OIjJncEjhYMI", success: function(result){
     var res=result.feed;
 	for (let i = 0; i < res.entry.length; i=i+4){
 	//console.log(res.entry[i].gs$cell.inputValue+":"+res.entry[i+1].gs$cell.inputValue+":"+res.entry[i+2].gs$cell.inputValue);
-	var myDataObj = new MyData(res.entry[i].gs$cell.inputValue, res.entry[i+1].gs$cell.inputValue, res.entry[i+2].gs$cell.inputValue,res.entry[i+3].gs$cell.inputValue);
+	var myDataObj = new MyData(data.values[i][0], data.values[i][1], data.values[i][2],data.values[i][3]);
 	promiseArray.push(myDataObj);
 	if(onCurrentWeek(myDataObj.date))
 	{
@@ -86,7 +86,19 @@ let apiRequestLoop = function() {
   }});
 }
 $(document).ready(function() {
-    my_data=apiRequestLoop();
+   var url = "https://sheets.googleapis.com/v4/spreadsheets/15CoBpWSHfWPttaNPtJEbYZqGKApG7tMdgg2GQbuWwdU/values/Sheet1?key=AIzaSyAWR9hrwz_L3pLXBg2aKY-OIjJncEjhYMI";
+   let promiseArray = [];
+$.getJSON(url, function(data) {
+for (let i = 0; i < data.values.length; i=i+4){
+	//console.log(res.entry[i].gs$cell.inputValue+":"+res.entry[i+1].gs$cell.inputValue+":"+res.entry[i+2].gs$cell.inputValue);
+	var myDataObj = new MyData(data.values[i][0], data.values[i][1], data.values[i][2],data.values[i][3]);
+	promiseArray.push(myDataObj);
+	if(onCurrentWeek(myDataObj.date))
+	{
+	callme(myDataObj.date.getDay(),myDataObj.name,myDataObj.FullName);
+	}}
+  //console.log(data.values);
+});
 });
 </script></head>
 <body><div id="boundary">
